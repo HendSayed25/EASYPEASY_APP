@@ -1,6 +1,6 @@
-package com.example.eatsygo_app.onborading
+package com.example.eatsygo_app.model
 
-data class OnBoradItem (
+data class OnBoardItem (
     var title:String,
     var imgId:Int,
     var description:String

@@ -1,4 +1,4 @@
-package com.example.eatsygo_app.onborading
+package com.example.eatsygo_app.ui.activity
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,8 +7,9 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
 import androidx.viewpager.widget.ViewPager
-import com.example.eatsygo_app.HomeActivity
 import com.example.eatsygo_app.R
+import com.example.eatsygo_app.adapter.ViewPagerAdapter
+import com.example.eatsygo_app.model.OnBoardItem
 import com.google.android.material.tabs.TabLayout
 
 class ViewPagerActivity : AppCompatActivity() {
@@ -20,9 +21,21 @@ class ViewPagerActivity : AppCompatActivity() {
     private lateinit var tabIndicator: TabLayout
 
     private val myList = arrayListOf(
-        OnBoradItem("Choose Your Favorite Food", R.drawable.onboard1,"Explore a wide variety of delicious dishes from your favorite local restaurants, all in one app!"),
-        OnBoradItem("Easy Payment..", R.drawable.onboard2,"Pay effortlessly with our secure and convenient payment options, making your order experience smooth and stress-free."),
-        OnBoradItem("Fast Delivery..", R.drawable.onboard3,"Get your food delivered to your doorstep quickly and reliably, ensuring it arrives hot and fresh every time")
+        OnBoardItem(
+            "Choose Your Favorite Food",
+            R.drawable.onboard1,
+            "Explore a wide variety of delicious dishes from your favorite local restaurants, all in one app!"
+        ),
+        OnBoardItem(
+            "Easy Payment..",
+            R.drawable.onboard2,
+            "Pay effortlessly with our secure and convenient payment options, making your order experience smooth and stress-free."
+        ),
+        OnBoardItem(
+            "Fast Delivery..",
+            R.drawable.onboard3,
+            "Get your food delivered to your doorstep quickly and reliably, ensuring it arrives hot and fresh every time"
+        )
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,7 +51,11 @@ class ViewPagerActivity : AppCompatActivity() {
 
 
         viewPager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
-            override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
+            override fun onPageScrolled(
+                position: Int,
+                positionOffset: Float,
+                positionOffsetPixels: Int
+            ) {
                 // You can use this method to handle scroll state if needed.
             }
 
@@ -111,6 +128,7 @@ class ViewPagerActivity : AppCompatActivity() {
         tabIndicator.visibility = View.INVISIBLE
         getStart_btn.visibility = View.VISIBLE
     }
+
     private fun showNavigationButtons() {
         next_btn.visibility = View.VISIBLE
         skip_btn.visibility = View.VISIBLE

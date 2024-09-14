@@ -1,4 +1,4 @@
-package com.example.eatsygo_app.onborading
+package com.example.eatsygo_app.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -8,23 +8,24 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.viewpager.widget.PagerAdapter
 import com.example.eatsygo_app.R
+import com.example.eatsygo_app.model.OnBoardItem
 
-class ViewPagerAdapter(private val context: Context, private val list:List<OnBoradItem>):
+class ViewPagerAdapter(private val context: Context, private val list: List<OnBoardItem>) :
     PagerAdapter() {
 
-
-    override fun instantiateItem(container: ViewGroup, position: Int): Any { //This method is responsible for creating each page view.
+    //This method is responsible for creating each page view.
+    override fun instantiateItem(container: ViewGroup, position: Int): Any {
 
         val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         val layoutScreen = inflater.inflate(R.layout.item_design, null)
 
         val image: ImageView = layoutScreen.findViewById(R.id.item_img)
         val title: TextView = layoutScreen.findViewById(R.id.item_title)
-        val desc: TextView =layoutScreen.findViewById(R.id.item_description)
+        val desc: TextView = layoutScreen.findViewById(R.id.item_description)
 
         title.text = list[position].title
         image.setImageResource(list[position].imgId)
-        desc.text=list[position].description
+        desc.text = list[position].description
 
         container.addView(layoutScreen)
 
@@ -35,15 +36,14 @@ class ViewPagerAdapter(private val context: Context, private val list:List<OnBor
         return list.size
     }
 
-    override fun isViewFromObject(view: View, `object`: Any): Boolean {//This method is used to check whether a view is associated with a specific key object returned by instantiateItem().
-        return view==`object`
+    //This method is used to check whether a view is associated with a specific key object returned by instantiateItem().
+    override fun isViewFromObject(view: View, `object`: Any): Boolean {
+        return view == `object`
     }
 
-    override fun destroyItem(container: ViewGroup, position: Int, `object`: Any) { // This used to removes a page from the ViewPager when it is no longer needed.
+    // This used to removes a page from the ViewPager when it is no longer needed.
+    override fun destroyItem(container: ViewGroup, position: Int, `object`: Any) {
         container.removeView(`object` as View)
-
     }
-
-
 
 }

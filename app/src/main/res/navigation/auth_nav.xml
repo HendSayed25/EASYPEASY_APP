@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/auth_nav"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.eatsygo_app.ui.fragment.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_forgetPasswordFragment"
+            app:destination="@id/forgetPasswordFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.example.eatsygo_app.ui.fragment.RegisterFragment"
+        android:label="fragment_register"
+        tools:layout="@layout/fragment_register" >
+        <action
+            android:id="@+id/action_registerFragment_to_confirmPhoneNumberFragment"
+            app:destination="@id/confirmPhoneNumberFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/forgetPasswordFragment"
+        android:name="com.example.eatsygo_app.ui.fragment.ForgetPasswordFragment"
+        android:label="fragment_forget_password"
+        tools:layout="@layout/fragment_forget_password" />
+    <fragment
+        android:id="@+id/confirmPhoneNumberFragment"
+        android:name="com.example.eatsygo_app.ui.fragment.ConfirmPhoneNumberFragment"
+        android:label="fragment_confirm_phone_number"
+        tools:layout="@layout/fragment_confirm_phone_number" >
+        <action
+            android:id="@+id/action_confirmPhoneNumberFragment_to_otpFragment"
+            app:destination="@id/otpFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/otpFragment"
+        android:name="com.example.eatsygo_app.ui.fragment.OtpFragment"
+        android:label="fragment_otp"
+        tools:layout="@layout/fragment_otp" >
+        <action
+            android:id="@+id/action_otpFragment_to_successfullyOtpFragment"
+            app:destination="@id/successfullyOtpFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/successfullyOtpFragment"
+        android:name="com.example.eatsygo_app.ui.fragment.SuccessfullyOtpFragment"
+        android:label="fragment_successfully_otp"
+        tools:layout="@layout/fragment_successfully_otp" >
+        <action
+            android:id="@+id/action_successfullyOtpFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+</navigation>

@@ -1,7 +1,8 @@
-package com.example.eatsygo_app
+package com.example.eatsygo_app.ui.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.example.eatsygo_app.R
 
 class HomeActivity: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

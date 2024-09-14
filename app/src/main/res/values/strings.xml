@@ -1,3 +1,34 @@
 <resources>
     <string name="app_name">EATSYGO</string>
+    <!-- TODO: Remove or change this placeholder text -->
+
+    <string name="hello">Hello\t There,\nWelcome \tBack</string>
+    <string name="login">Login</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="forgetPassword">Forget Password ?</string>
+    <string name="new_user_signup">New User, You can Sign Up!</string>
+    <string name="forget_password">Enter Your Email Address Associated With\nYour Account</string>
+    <string name="sign_in">Sign in to continue</string>
+    <string name="register">Register</string>
+    <string name="create_account">Create an Account,it\'s free</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="backpage">backPage</string>
+    <string name="send_password">Send Password</string>
+    <string name="verification">Enter Your Mobile Number</string>
+    <string name="phone">Phone</string>
+    <string name="send_code">We are automatically detecting a SMS\nsend to your mobile number</string>
+    <string name="OTP_failure">Don\'t Receive the OTP?</string>
+    <string name="resend_otp">Resend OTP</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="account_created">Your Account has been\ncreated.</string>
+    <string name="send_confirmation">We Will send you a Confirmation code</string>
+    <string name="verify">Verify</string>
+    <string name="enter_code">Enter Verification code</string>
+    <string name="success_process">Successfully</string>
+    <string name="okay">Okay</string>
+
 </resources>
