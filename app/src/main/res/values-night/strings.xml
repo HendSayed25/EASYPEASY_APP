@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="order_summery">Order Summery :</string>
+    <string name="subtotal">SubTotal :</string>
+    <string name="place_order">Place Order</string>
+    <string name="apply">Apply</string>
+    <string name="log_out">Log out</string>
+</resources>

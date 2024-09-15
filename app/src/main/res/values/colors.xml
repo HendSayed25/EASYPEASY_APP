@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="black">#000000</color>
+    <color name="lite_black">#393737</color>
+
     <color name="gray">#DADADA</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="orange">#FE724C</color>
     <color name="gold">#D37127</color>
     <color name="yellow">#FFc529</color>r>
 </resources>
