@@ -16,7 +16,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.02" />
+            app:layout_constraintGuide_begin="@dimen/_20sdp" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/left_guideline"
@@ -109,7 +109,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/ForgetPassword"
+            android:id="@+id/verifyPhone"
             android:layout_width="0dp"
             android:layout_height="@dimen/_40sdp"
             android:layout_marginTop="@dimen/_60sdp"

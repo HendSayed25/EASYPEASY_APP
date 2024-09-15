@@ -10,7 +10,6 @@ import com.example.eatsygo_app.R
 class AuthActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContentView(R.layout.activity_auth)
 
 

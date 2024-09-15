@@ -9,15 +9,15 @@
 
     <ImageView
         android:id="@+id/item_img"
-        android:layout_width="300dp"
+        android:layout_width="match_parent"
         android:layout_height="290dp"
+        android:scaleType="centerCrop"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginTop="90dp"
         tools:srcCompat="@tools:sample/avatars"
         />
-
 
     <TextView
         android:id="@+id/item_title"
@@ -28,14 +28,14 @@
         app:layout_constraintTop_toBottomOf="@id/item_img"
         android:text="TextView"
         android:textColor="@color/black"
-        android:textSize="16dp"
+        android:textSize="@dimen/_20ssp"
         android:textStyle="bold"
         android:layout_margin="40dp"
         android:fontFamily="@font/chrustyrock_orla"/>
 
     <TextView
         android:id="@+id/item_description"
-        android:layout_width="wrap_content"
+        android:layout_width="@dimen/_270sdp"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -43,7 +43,8 @@
         android:text="TextView"
         android:textAlignment="center"
         android:textColor="@color/black"
-        android:textSize="13dp"
+        android:textStyle="bold"
+        android:textSize="@dimen/_12ssp"
         android:layout_margin="10dp"/>
 
 

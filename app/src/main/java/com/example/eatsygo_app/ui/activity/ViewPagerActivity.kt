@@ -4,12 +4,15 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
 import androidx.viewpager.widget.ViewPager
 import com.example.eatsygo_app.R
 import com.example.eatsygo_app.adapter.ViewPagerAdapter
 import com.example.eatsygo_app.model.OnBoardItem
+import com.example.eatsygo_app.utils.AuthViewModel
+import com.example.eatsygo_app.utils.SharedPrefsManager
 import com.google.android.material.tabs.TabLayout
 
 class ViewPagerActivity : AppCompatActivity() {
@@ -20,18 +23,18 @@ class ViewPagerActivity : AppCompatActivity() {
     private lateinit var getStart_btn: AppCompatButton
     private lateinit var tabIndicator: TabLayout
 
+    private val authViewModel: AuthViewModel by viewModels()
+
     private val myList = arrayListOf(
         OnBoardItem(
             "Choose Your Favorite Food",
             R.drawable.onboard1,
             "Explore a wide variety of delicious dishes from your favorite local restaurants, all in one app!"
-        ),
-        OnBoardItem(
+        ), OnBoardItem(
             "Easy Payment..",
             R.drawable.onboard2,
             "Pay effortlessly with our secure and convenient payment options, making your order experience smooth and stress-free."
-        ),
-        OnBoardItem(
+        ), OnBoardItem(
             "Fast Delivery..",
             R.drawable.onboard3,
             "Get your food delivered to your doorstep quickly and reliably, ensuring it arrives hot and fresh every time"
@@ -52,9 +55,7 @@ class ViewPagerActivity : AppCompatActivity() {
 
         viewPager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
             override fun onPageScrolled(
-                position: Int,
-                positionOffset: Float,
-                positionOffsetPixels: Int
+                position: Int, positionOffset: Float, positionOffsetPixels: Int
             ) {
                 // You can use this method to handle scroll state if needed.
             }
@@ -92,8 +93,8 @@ class ViewPagerActivity : AppCompatActivity() {
 
 
         getStart_btn.setOnClickListener {
-            val i = Intent(this, HomeActivity::class.java)
-            startActivity(i)
+            authViewModel.setOnBoardingState(true)
+            startActivity(Intent(this, AuthActivity::class.java))
             finish()
         }
 
@@ -115,6 +116,9 @@ class ViewPagerActivity : AppCompatActivity() {
     }
 
     private fun initValues() {
+
+        SharedPrefsManager.init(this@ViewPagerActivity)
+
         viewPager = findViewById(R.id.screen_viewpager)
         skip_btn = findViewById(R.id.tv_skip)
         next_btn = findViewById(R.id.btn_next)

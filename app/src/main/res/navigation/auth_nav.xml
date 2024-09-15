@@ -16,6 +16,10 @@
         <action
             android:id="@+id/action_loginFragment_to_forgetPasswordFragment"
             app:destination="@id/forgetPasswordFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_mainActivity"
+            app:destination="@id/mainActivity"
+            app:popUpTo="@id/mainActivity" />
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
@@ -25,12 +29,20 @@
         <action
             android:id="@+id/action_registerFragment_to_confirmPhoneNumberFragment"
             app:destination="@id/confirmPhoneNumberFragment" />
+        <action
+            android:id="@+id/action_registerFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/registerFragment" />
     </fragment>
     <fragment
         android:id="@+id/forgetPasswordFragment"
         android:name="com.example.eatsygo_app.ui.fragment.ForgetPasswordFragment"
         android:label="fragment_forget_password"
-        tools:layout="@layout/fragment_forget_password" />
+        tools:layout="@layout/fragment_forget_password" >
+        <action
+            android:id="@+id/action_forgetPasswordFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
     <fragment
         android:id="@+id/confirmPhoneNumberFragment"
         android:name="com.example.eatsygo_app.ui.fragment.ConfirmPhoneNumberFragment"
@@ -39,6 +51,9 @@
         <action
             android:id="@+id/action_confirmPhoneNumberFragment_to_otpFragment"
             app:destination="@id/otpFragment" />
+        <action
+            android:id="@+id/action_confirmPhoneNumberFragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
     </fragment>
     <fragment
         android:id="@+id/otpFragment"
@@ -47,7 +62,11 @@
         tools:layout="@layout/fragment_otp" >
         <action
             android:id="@+id/action_otpFragment_to_successfullyOtpFragment"
-            app:destination="@id/successfullyOtpFragment" />
+            app:destination="@id/successfullyOtpFragment"
+            app:popUpTo="@id/successfullyOtpFragment" />
+        <action
+            android:id="@+id/action_otpFragment_to_confirmPhoneNumberFragment"
+            app:destination="@id/confirmPhoneNumberFragment" />
     </fragment>
     <fragment
         android:id="@+id/successfullyOtpFragment"
@@ -56,6 +75,11 @@
         tools:layout="@layout/fragment_successfully_otp" >
         <action
             android:id="@+id/action_successfullyOtpFragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/loginFragment" />
     </fragment>
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="com.example.eatsygo_app.ui.activity.MainActivity"
+        android:label="MainActivity" />
 </navigation>
