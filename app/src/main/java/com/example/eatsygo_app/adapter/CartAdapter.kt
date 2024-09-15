@@ -40,7 +40,7 @@ class CartAdapter(var items:MutableList<CartItem>?): RecyclerView.Adapter<CartAd
       //  holder.plusIcon.setImageResource(R.drawable.plus)
      //   holder.minusIcon.setImageResource(R.drawable.minus)
 
-        //holder.itemImage.setImageResource(R.) ??
+        holder.itemImage.setImageResource(item.itemImage)
 
     }
 
