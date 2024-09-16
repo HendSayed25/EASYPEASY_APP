@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.eatsygo_app.R
 
-class FavroiteFragment : Fragment() {
+class FavouriteFragment : Fragment() {
 
 
     override fun onCreateView(
@@ -15,7 +15,7 @@ class FavroiteFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_favroite, container, false)
+        return inflater.inflate(R.layout.fragment_favourite, container, false)
     }
 
 }

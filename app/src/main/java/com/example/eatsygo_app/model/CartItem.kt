@@ -10,6 +10,4 @@ data class CartItem(
     var itemCountTv: String,
     var numberOfItemNeeded: String ,
     var itemPrice: String,
-  //  var plusIcon:Int,
-   // var minusIcon:Int
 )

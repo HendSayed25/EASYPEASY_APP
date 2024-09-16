@@ -2,69 +2,35 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.activity.MainActivity"
     android:background="@color/white">
 
-
-   <androidx.constraintlayout.widget.Guideline
-       android:id="@+id/top_guideline"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:orientation="horizontal"
-       app:layout_constraintGuide_percent="0.02" />
-
-   <androidx.constraintlayout.widget.Guideline
-       android:id="@+id/left_guideline"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:orientation="vertical"
-       app:layout_constraintGuide_percent="0.05" />
-
-   <androidx.constraintlayout.widget.Guideline
-       android:id="@+id/right_guideline"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:orientation="vertical"
-       app:layout_constraintGuide_percent="0.95" />
-
-   <androidx.constraintlayout.widget.Guideline
-       android:id="@+id/bottom_guideline"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:orientation="horizontal"
-       app:layout_constraintGuide_percent="0.98" />
-
-   <FrameLayout
-      android:id="@+id/container_main"
-       android:layout_width="0dp"
+   <fragment
+       android:id="@+id/container_main"
+       android:name="androidx.navigation.fragment.NavHostFragment"
+       android:layout_width="match_parent"
        android:layout_height="0dp"
-       app:layout_constraintStart_toStartOf="@id/left_guideline"
-       app:layout_constraintEnd_toStartOf="@id/right_guideline"
-       app:layout_constraintTop_toTopOf="@id/top_guideline"
+       android:layout_weight="1"
+       app:defaultNavHost="true"
+       app:navGraph="@navigation/app_nav"
        app:layout_constraintBottom_toTopOf="@id/bottom_navigation"
-
-      />
+       app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toTopOf="parent" />
 
 
    <com.google.android.material.bottomnavigation.BottomNavigationView
        android:id="@+id/bottom_navigation"
-       android:layout_width="0dp"
-       android:layout_height="@dimen/_42sdp"
-       android:background="@color/gold"
-       app:layout_constraintBottom_toTopOf="@id/bottom_guideline"
-       app:layout_constraintStart_toStartOf="@id/left_guideline"
-       app:layout_constraintEnd_toStartOf="@id/right_guideline"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
        app:menu="@menu/bottom_naviagtion"
-       app:itemTextColor="@color/bottom_naviagtion_icon_color"
        app:itemIconTint="@color/bottom_naviagtion_icon_color"
-
-      />
-
-
-
+       android:background="#D38F27"
+       app:layout_constraintBottom_toBottomOf="parent"
+       app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

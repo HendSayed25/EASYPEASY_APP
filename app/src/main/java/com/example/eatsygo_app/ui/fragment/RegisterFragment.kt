@@ -74,10 +74,7 @@ class RegisterFragment : Fragment() {
                 Navigation.findNavController(view).navigate(
                     R.id.action_registerFragment_to_confirmPhoneNumberFragment
                 )
-            } else {
-                Toast.makeText(context, registerResult.second, Toast.LENGTH_LONG).show()
             }
-
         }
 
         binding.backPage.setOnClickListener {
@@ -96,23 +93,29 @@ class RegisterFragment : Fragment() {
     ): Pair<Boolean, String> {
         // Check if any field is empty
         if (firstName.isEmpty()) {
+            binding.firstnameEdt.error = "Email cannot be empty."
             return Pair(false, "First name cannot be empty.")
         }
         if (lastName.isEmpty()) {
+            binding.lastnameEdt.error = "Email cannot be empty."
             return Pair(false, "Last name cannot be empty.")
         }
         if (email.isEmpty()) {
+            binding.mEditEmail.error = "Email cannot be empty."
             return Pair(false, "Email cannot be empty.")
         }
         if (password.isEmpty()) {
+            binding.passwordInputEditText.error = "Email cannot be empty."
             return Pair(false, "Password cannot be empty.")
         }
         if (confirmPassword.isEmpty()) {
+            Toast.makeText(context, "Please confirm your password.", Toast.LENGTH_LONG).show()
             return Pair(false, "Please confirm your password.")
         }
 
         // Check if password and confirm password match
         if (password != confirmPassword) {
+            Toast.makeText(context, "Passwords do not match.", Toast.LENGTH_LONG).show()
             return Pair(false, "Passwords do not match.")
         }
 

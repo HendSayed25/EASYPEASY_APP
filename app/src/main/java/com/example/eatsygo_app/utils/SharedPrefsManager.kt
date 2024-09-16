@@ -16,7 +16,13 @@ object SharedPrefsManager {
         preferences.edit().putString(key, value).apply()
     }
 
+    fun saveIntValue(key: String, value: Int) {
+        preferences.edit().putInt(key, value).apply()
+    }
+
     fun getValue(key: String) = preferences.getString(key, null)
+
+    fun getIntValue(key: String) = preferences.getInt(key, 0)
 
     fun saveBoolean(key: String, value: Boolean) {
         preferences.edit().putBoolean(key, value).apply()

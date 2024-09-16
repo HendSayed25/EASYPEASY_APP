@@ -47,7 +47,7 @@
     <string name="favorite">Favorite</string>
     <string name="cart">Cart</string>
     <string name="profile">profile</string>
-    <string name="orders">orders</string>
-    <string name="wallet">wallet</string>
+    <string name="orders">Orders</string>
+    <string name="wallet">Wallet</string>
 
 </resources>

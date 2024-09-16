@@ -56,10 +56,7 @@ class LoginFragment : Fragment() {
                 Navigation.findNavController(view).navigate(
                     R.id.action_loginFragment_to_mainActivity
                 )
-            } else {
-                Toast.makeText(context, authResult.second, Toast.LENGTH_LONG).show()
             }
-
         }
 
         binding.forgetTv.setOnClickListener {
@@ -81,20 +78,24 @@ class LoginFragment : Fragment() {
     ): Pair<Boolean, String> {
         // Check if email is empty
         if (email.isEmpty()) {
+            binding.mEditEmail.error = "Email cannot be empty."
             return Pair(false, "Email cannot be empty.")
         }
 
         // Check if password is empty
         if (password.isEmpty()) {
+            binding.mEditPassword.error = "Password cannot be empty."
             return Pair(false, "Password cannot be empty.")
         }
 
         // Validation for the email format
         if (!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            Toast.makeText(context, "Invalid email format.", Toast.LENGTH_LONG).show()
             return Pair(false, "Invalid email format.")
         }
 
         if (!authViewModel.checkLogin(email, password)) {
+            Toast.makeText(context, "Invalid email or password.", Toast.LENGTH_LONG).show()
             return Pair(false, "Invalid email or password.")
         }
 
