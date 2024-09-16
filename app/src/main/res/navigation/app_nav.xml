@@ -19,10 +19,6 @@
         <action
             android:id="@+id/action_homeFragment_to_profileFragment"
             app:destination="@id/profileFragment" />
-        <action
-            android:id="@+id/action_homeFragment_to_splashActivity"
-            app:destination="@id/splashActivity"
-            app:popUpTo="@id/splashActivity" />
     </fragment>
     <fragment
         android:id="@+id/favouriteFragment"
@@ -40,13 +36,9 @@
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" >
         <action
-            android:id="@+id/action_profileFragment_to_splashActivity"
-            app:destination="@id/splashActivity"
-            app:popUpTo="@id/splashActivity" />
+            android:id="@+id/action_profileFragment_to_auth_nav"
+            app:destination="@id/auth_nav"
+            app:popUpTo="@id/auth_nav" />
     </fragment>
-    <activity
-        android:id="@+id/splashActivity"
-        android:name="com.example.eatsygo_app.ui.activity.SplashActivity"
-        android:label="activity_splash"
-        tools:layout="@layout/activity_splash" />
+    <include app:graph="@navigation/auth_nav" />
 </navigation>

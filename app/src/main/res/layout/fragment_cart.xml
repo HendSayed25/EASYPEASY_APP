@@ -91,7 +91,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_30sdp"
                     android:drawablePadding="@dimen/_10sdp"
-                    android:drawableTint="@color/gray" />
+                    android:drawableTint="@color/gray"
+                    android:textColor="@color/black"/>
 
             </com.google.android.material.textfield.TextInputLayout>
 

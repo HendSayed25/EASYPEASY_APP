@@ -2,9 +2,14 @@ package com.example.eatsygo_app.source.local
 
 import com.example.eatsygo_app.model.entity.ProductEntity
 import com.example.eatsygo_app.source.remote.ClotheApi
+import javax.inject.Inject
 
-class ClotheRepository(private val apiService: ClotheApi,
-                       private val productDao: ClotheDao) {
+class ClotheRepository@Inject constructor(
+    private val apiService: ClotheApi,
+    private val productDao: ClotheDao
+) {
+
+
 
     suspend fun fetchAndSaveProducts() {
         // Fetch products from the API
