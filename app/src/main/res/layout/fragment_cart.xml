@@ -162,7 +162,7 @@
                 android:textColor="@color/gold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/subTotal_value"
-                tools:text="$28.5" />
+                android:text="20$" />
 
             <View
                 android:id="@+id/line2"

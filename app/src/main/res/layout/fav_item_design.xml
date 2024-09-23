@@ -48,8 +48,6 @@
             android:layout_width="0dp"
             android:layout_height="@dimen/_100sdp"
             android:src="@drawable/empty_cart"
-            android:scaleType="fitXY"
-
             app:layout_constraintStart_toStartOf="@id/left_guideline"
             app:layout_constraintEnd_toStartOf="@id/right_guideline"
             app:layout_constraintTop_toTopOf="@id/top_guideline"

@@ -8,7 +8,7 @@ import androidx.room.TypeConverters
 import com.example.eatsygo_app.model.RateConverter
 import com.example.eatsygo_app.model.entity.ProductEntity
 
-@Database(entities = [ProductEntity::class], version = 1, exportSchema = false)
+@Database(entities = [ProductEntity::class], version = 2, exportSchema = false)
 @TypeConverters(RateConverter::class)
 abstract class ClotheDatabase : RoomDatabase() {
     abstract fun productDao(): ClotheDao
@@ -24,7 +24,9 @@ abstract class ClotheDatabase : RoomDatabase() {
                     context.applicationContext,
                     ClotheDatabase::class.java,
                     "clothe_database"
-                ).build()
+                ).fallbackToDestructiveMigration().//this function to if we change the database this will replace the old by the new
+                allowMainThreadQueries().//this fun to allow make query in main thread which control of user interface.build()
+                build()
                 INSTANCE = instance
                 instance
             }

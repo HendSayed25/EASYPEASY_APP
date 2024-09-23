@@ -29,14 +29,15 @@ class CartFragment : Fragment() {
 
     lateinit var cartList:MutableList<CartItem>
     lateinit var cartAdapter:CartAdapter
-    var countOfItem=0
+    var countOfItem=1
+    var subTotal=0.0
 
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+
         _binding=FragmentCartBinding.inflate(inflater,container,false)
         return binding.root
     }
@@ -54,7 +55,6 @@ class CartFragment : Fragment() {
         plusOrMinusClick()
 
 
-
         binding.btnPlaceOrder.setOnClickListener {
             placeOrderButtonSheet()
         }
@@ -69,14 +69,13 @@ class CartFragment : Fragment() {
 
     private fun getCartItemFromDatabase(){
 
-        //dispatcher is optimized for tasks like reading from or writing to a database or making network calls—operations that don't require heavy CPU usage
-        //dispatcher.IO to avoid blocking the main UI thread.
         CoroutineScope(Dispatchers.IO).launch {
             withContext(Dispatchers.Main) {
                 var list=ClotheDatabase.getInstance(requireContext()).productDao().getCartProduct()
                 //convert productEntity list to cartItemList
                 for(i :Int in 0 until list.size){
-                    cartList.add(CartItem(list.get(i).price.toString(),1,list.get(i).title,list.get(i).price,list.get(i).image,list.get(i).rating,list.get(i).isFavourite,list.get(i).isCartIn))
+                    cartList.add(CartItem(list.get(i).id,list.get(i).price.toString(),1,list.get(i).title,list.get(i).description,list.get(i).category,list.get(i).price,list.get(i).image,list.get(i).rating,list.get(i).isFavourite,list.get(i).isCartIn))
+                    subTotal+=list.get(i).price
                 }
                 //handel the UI
                 if (cartList.size>0){
@@ -88,34 +87,84 @@ class CartFragment : Fragment() {
                 }
                 //update the adapter list
                 cartAdapter.updateData(cartList.toList())
+
+                //update UI
+                binding.subTotalValue.text=String.format("%.3f", subTotal)
+                binding.totalValue.text=String.format("%.3f", subTotal+20.0)
+
             }
         }
     }
     private fun plusOrMinusClick(){
-        cartAdapter.onItemClicked=object:CartAdapter.onItemClick{
+        cartAdapter.onItemClicked=object:CartAdapter.onItemClick {
             override fun plusItemClick(cartItem: CartItem) {
                 countOfItem++
-                cartItem.numberOfItemNeeded=countOfItem
-                cartItem.itemCountTv= "${countOfItem} * ${cartItem.price}"
+                cartItem.numberOfItemNeeded = countOfItem
+                cartItem.itemCountTv = "${countOfItem} * ${cartItem.price}"
+                subTotal += cartItem.price
 
 
                 // Notify the adapter that the data for this item has changed
                 val position = cartList.indexOf(cartItem)
                 cartAdapter.notifyItemChanged(position)
+
+                //update UI of total price
+                binding.subTotalValue.text = String.format("%.3f", subTotal)
+                binding.totalValue.text = String.format("%.3f", subTotal + 20.0)
 
             }
 
             override fun minsItemClick(cartItem: CartItem) {
+
                 countOfItem--
-                if(countOfItem<0)countOfItem=0
-                cartItem.numberOfItemNeeded=countOfItem
-                cartItem.itemCountTv= "${countOfItem} * ${cartItem.price}"
-                    //(countOfItem*(cartItem.price)).toString()
+                subTotal -= cartItem.price
+                if (subTotal < 0) subTotal = 0.0
+                if (countOfItem < 1) {
+                    // Change the state of the item and update the database
+                    cartItem.isFavourite = false
+                    val product = ProductEntity(
+                        cartItem.id, cartItem.title, cartItem.price, cartItem.description,
+                        cartItem.category, cartItem.image, cartItem.rating, cartItem.isFavourite,
+                        cartItem.isOnCart
+                    )
 
-                // Notify the adapter that the data for this item has changed
-                val position = cartList.indexOf(cartItem)
-                cartAdapter.notifyItemChanged(position)
+                    CoroutineScope(Dispatchers.IO).launch {
+                        withContext(Dispatchers.Main) {
+                            ClotheDatabase.getInstance(requireContext()).productDao()
+                                .updateProduct(product)
+                        }
+                    }
 
+                    // Find the  index and remove the item from the adapter list
+                    val position = cartList.indexOf(cartItem)
+                    if (position != -1) {
+                        cartList.removeAt(position)
+                        cartAdapter.updateData(cartList)
+
+                        // Handle the UI
+                        if (cartList.size > 0) {
+                            binding.recyclerCart.visibility = View.VISIBLE
+                            binding.recyclerEmpty.visibility = View.INVISIBLE
+                        } else {
+                            binding.recyclerEmpty.visibility = View.VISIBLE
+                            binding.recyclerCart.visibility = View.INVISIBLE
+                        }
+                    }
+
+                } else {
+                    cartItem.numberOfItemNeeded = countOfItem
+                    cartItem.itemCountTv = "${countOfItem} * ${cartItem.price}"
+
+                    // Notify the adapter that the data for this item has changed
+                    val position = cartList.indexOf(cartItem)
+                    if (position != -1) {
+                        cartAdapter.notifyItemChanged(position)
+                    }
+                }
+
+                // Update the UI
+                binding.subTotalValue.text = String.format("%.3f", subTotal)
+                binding.totalValue.text = String.format("%.3f", subTotal + 20.0)
             }
         }
     }
