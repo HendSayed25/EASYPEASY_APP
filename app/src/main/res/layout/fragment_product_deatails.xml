@@ -2,19 +2,21 @@
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="@dimen/_180sdp"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="@dimen/_5sdp"
-    android:backgroundTint="@color/white"
-    app:cardElevation="@dimen/_4sdp"
-    app:cardCornerRadius="@dimen/_10sdp"
-    >
+    android:layout_margin="@dimen/_7sdp"
+    android:background="@color/white"
+    android:elevation="@dimen/_2sdp"
+    app:cardCornerRadius="@dimen/_7sdp"
+    app:cardBackgroundColor="@color/white">
+
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_deatils"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="@dimen/_5sdp"
-        >
+        android:layout_height="wrap_content"
+        android:layout_margin="7dp"
+        android:background="@color/white">
 
         <ImageView
             android:id="@+id/imageView"
@@ -37,31 +39,30 @@
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView"
-            android:maxLines="1"
+            android:maxLines="4"
             android:ellipsize="end"/>
 
 
         <TextView
             android:id="@+id/description"
-            android:layout_width="@dimen/_157sdp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_5sdp"
             android:gravity="start"
             android:text="Mens Casual Slim Fit"
             android:textSize="@dimen/_10sdp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/title"
-            android:maxLines="1"
+            android:maxLines="4"
             android:ellipsize="end"/>
 
         <TextView
             android:id="@+id/price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_10sdp"
-            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_marginStart="@dimen/_17sdp"
+            android:layout_marginTop="@dimen/_12sdp"
             android:text="$120.00"
             android:textColor="@color/black"
             android:textSize="@dimen/_15ssp"
@@ -71,16 +72,47 @@
             app:layout_constraintTop_toBottomOf="@+id/description" />
 
         <ImageView
-            android:id="@+id/add_to_fav_design"
+            android:id="@+id/add_to_fav"
             android:layout_width="@dimen/_35sdp"
             android:layout_height="@dimen/_35sdp"
-            android:layout_marginTop="@dimen/_14sdp"
-            android:layout_marginEnd="@dimen/_8sdp"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:layout_marginEnd="@dimen/_15sdp"
             android:layout_marginBottom="@dimen/_5sdp"
             android:src="@drawable/fav_icon"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/description" />
+        <ImageView
+            android:id="@+id/add_to_fav_red"
+            android:layout_width="@dimen/_38sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginTop="@dimen/_14sdp"
+            android:layout_marginEnd="@dimen/_15sdp"
+            android:layout_marginBottom="@dimen/_5sdp"
+            android:src="@drawable/fav_red"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/description"
+            android:visibility="gone"
+            />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/add_to_cart_btn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:layout_marginEnd="@dimen/_15sdp"
+            android:backgroundTint="@color/orange"
+            android:text="Add To Cart"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_14sdp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/layout_deatils"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/price" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

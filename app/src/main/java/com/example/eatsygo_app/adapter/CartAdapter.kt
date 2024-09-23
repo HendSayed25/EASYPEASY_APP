@@ -6,42 +6,64 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView.ViewHolder
+import com.bumptech.glide.Glide
 import com.example.eatsygo_app.R
+import com.example.eatsygo_app.databinding.CartItemDesignBinding
+import com.example.eatsygo_app.databinding.FavItemDesignBinding
 import com.example.eatsygo_app.model.CartItem
+import com.example.eatsygo_app.model.entity.ProductEntity
 
-class CartAdapter(var items:MutableList<CartItem>?): RecyclerView.Adapter<CartAdapter.CartItemViewHolder>() {
+class CartAdapter(private var cartList:List<CartItem>): RecyclerView.Adapter<CartAdapter.CartItemViewHolder>() {
 
-    class CartItemViewHolder(itemView: View):RecyclerView.ViewHolder(itemView){
-        var itemImage:ImageView=itemView.findViewById(R.id.item_image)
-        var itemName:TextView=itemView.findViewById(R.id.item_name)
-        var itemCountTv:TextView=itemView.findViewById(R.id.item_count_tv)
-        var numberOfItemNeeded:TextView=itemView.findViewById(R.id.numberOfItemNeeded)
-        var itemPrice:TextView=itemView.findViewById(R.id.item_price)
-        var plusIcon:ImageView=itemView.findViewById(R.id.plus_icon)
-        var minusIcon:ImageView=itemView.findViewById(R.id.minus_icon)
+    class CartItemViewHolder(private var binding:CartItemDesignBinding,private var onItemClick: onItemClick?):RecyclerView.ViewHolder(binding.root){
+
+        fun bind(product:CartItem){//delete it and be default 1* price ??????
+            binding.apply {
+                itemName.text=product.title
+                itemPrice.text=product.price.toString()
+                numberOfItemNeeded.text=product.numberOfItemNeeded.toString()
+                itemCountTv.text=product.itemCountTv
+                Glide.with(itemImage).load(product.image).into(itemImage)
+
+                //call back
+                plusIcon.setOnClickListener {
+                    onItemClick?.plusItemClick(product)
+                }
+
+                minusIcon.setOnClickListener {
+                    onItemClick?.minsItemClick(product)
+
+                }
+            }
+        }
 
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CartItemViewHolder {
-        var view=LayoutInflater.from(parent.context).inflate(R.layout.cart_item_design,parent,false)
-        return CartItemViewHolder(view)
+        val binding =CartItemDesignBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return CartItemViewHolder(binding,onItemClicked)
     }
 
-    override fun getItemCount(): Int {
-        return items!!.size
-    }
+    override fun getItemCount(): Int=cartList.size
 
     override fun onBindViewHolder(holder: CartItemViewHolder, position: Int) {
-        var item=items!!.get(position)
-        holder.itemName.text=item.itemName
-        holder.itemPrice.text=item.itemPrice
-        holder.itemCountTv.text= item.itemCountTv.toString()
-        holder.numberOfItemNeeded.text=item.numberOfItemNeeded.toString()
-      //  holder.plusIcon.setImageResource(R.drawable.plus)
-     //   holder.minusIcon.setImageResource(R.drawable.minus)
+        var item=cartList.get(position)
+        holder.bind(item)
 
-        holder.itemImage.setImageResource(item.itemImage)
 
+    }
+
+    fun updateData(CartList: List<CartItem>) {
+        cartList = CartList
+        notifyDataSetChanged()
+    }
+
+    var onItemClicked:onItemClick?=null
+
+    interface onItemClick{
+        fun plusItemClick(cartItem: CartItem)
+        fun minsItemClick(cartItem: CartItem)
     }
 
 

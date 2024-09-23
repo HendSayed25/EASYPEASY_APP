@@ -5,5 +5,8 @@
     <color name="gray">#DADADA</color>
     <color name="white">#FFFFFFFF</color>
     <color name="gold">#D37127</color>
-    <color name="yellow">#FFc529</color>r>
+    <color name="yellow">#FFc529</color>
+    <color name="orange">#D56C1E</color>
+    <color name="darkWhite">#FFF5E4</color>
+    <color name="lightGreen">#C1D8C3</color>
 </resources>

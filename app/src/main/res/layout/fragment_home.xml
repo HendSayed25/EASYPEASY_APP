@@ -131,7 +131,7 @@
                             android:layout_height="@dimen/_50sdp"
                             android:layout_gravity="start"
                             android:scaleType="centerCrop"
-                            android:src="@drawable/top_banner" />
+                            android:src="@drawable/man_icon" />
 
                         <TextView
                             android:id="@+id/catOneTxt"
@@ -152,6 +152,7 @@
                 </com.google.android.material.card.MaterialCardView>
 
                 <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/catTwo"
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/_50sdp"
                     android:layout_marginStart="@dimen/_8sdp"
@@ -166,9 +167,48 @@
                             android:layout_height="@dimen/_50sdp"
                             android:layout_gravity="start"
                             android:scaleType="centerCrop"
-                            android:src="@drawable/top_banner" />
+                            android:src="@drawable/women_icon" />
 
                         <TextView
+                            android:id="@+id/catTwoTxt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="@dimen/_5sdp"
+                            android:layout_marginEnd="@dimen/_5sdp"
+                            android:fontFamily="@font/antonregular"
+                            android:padding="5dp"
+                            android:text="@string/man"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_18ssp"
+                            android:textStyle="bold"
+                            android:visibility="gone" />
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/catThree"
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_50sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_10sdp">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/_50sdp">
+
+                        <ImageView
+                            android:layout_width="@dimen/_80sdp"
+                            android:layout_height="@dimen/_50sdp"
+                            android:layout_gravity="start"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/elctronics_icon" />
+
+                        <TextView
+                            android:id="@+id/catThreeTxt"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
@@ -187,6 +227,8 @@
                 </com.google.android.material.card.MaterialCardView>
 
                 <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/catFour"
+
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/_50sdp"
                     android:layout_marginStart="@dimen/_8sdp"
@@ -201,44 +243,11 @@
                             android:layout_height="@dimen/_50sdp"
                             android:layout_gravity="start"
                             android:scaleType="centerCrop"
-                            android:src="@drawable/top_banner" />
+                            android:src="@drawable/jewarly_icon" />
 
                         <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
-                            android:layout_marginStart="@dimen/_5sdp"
-                            android:layout_marginEnd="@dimen/_5sdp"
-                            android:fontFamily="@font/antonregular"
-                            android:padding="5dp"
-                            android:text="man"
-                            android:textColor="@color/black"
-                            android:textSize="@dimen/_18ssp"
-                            android:textStyle="bold"
-                            android:visibility="gone" />
+                            android:id="@+id/catFourTxt"
 
-                    </LinearLayout>
-
-                </com.google.android.material.card.MaterialCardView>
-
-                <com.google.android.material.card.MaterialCardView
-                    android:layout_width="wrap_content"
-                    android:layout_height="@dimen/_50sdp"
-                    android:layout_marginStart="@dimen/_8sdp"
-                    android:layout_marginTop="@dimen/_10sdp">
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="@dimen/_50sdp">
-
-                        <ImageView
-                            android:layout_width="@dimen/_80sdp"
-                            android:layout_height="@dimen/_50sdp"
-                            android:layout_gravity="start"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/top_banner" />
-
-                        <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"

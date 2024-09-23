@@ -18,10 +18,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-//        val navController = findNavController(R.id.container_main)
-//        val bottomNavigation = findViewById<BottomNavigationView>(R.id.bottom_navigation)
-//        bottomNavigation.setupWithNavController(navController)
+        val navController = findNavController(R.id.container_main)
+        val bottomNavigation = findViewById<BottomNavigationView>(R.id.bottom_navigation)
+        bottomNavigation.setupWithNavController(navController)
 
-        supportFragmentManager.beginTransaction().replace(R.id.container,HomeFragment()).commit()
+      //  supportFragmentManager.beginTransaction().replace(R.id.container,HomeFragment()).commit()
+
     }
 }

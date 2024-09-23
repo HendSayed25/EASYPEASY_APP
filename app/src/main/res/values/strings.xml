@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">EATSYGO</string>
+    <string name="app_name">EASYPEASY</string>
     <!-- TODO: Remove or change this placeholder text -->
 
     <string name="hello">Hello\t There,\nWelcome \tBack</string>
@@ -49,5 +49,6 @@
     <string name="profile">profile</string>
     <string name="orders">Orders</string>
     <string name="wallet">Wallet</string>
+    <string name="man">man</string>
 
 </resources>

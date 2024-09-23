@@ -20,7 +20,7 @@
 
         <ImageView
             android:id="@+id/item_image"
-            android:layout_width="145dp"
+            android:layout_width="143dp"
             android:layout_height="120dp"
             android:src="@drawable/logo"
             app:layout_constraintBottom_toBottomOf="@id/layout"
@@ -31,7 +31,7 @@
             android:id="@+id/item_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
+            android:layout_marginStart="@dimen/_8sdp"
             android:layout_marginTop="16dp"
             android:textSize="22sp"
             android:textStyle="bold"
@@ -43,7 +43,7 @@
             android:id="@+id/item_count_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
+            android:layout_marginStart="@dimen/_8sdp"
             android:layout_marginTop="@dimen/_7sdp"
             android:textSize="20sp"
 
@@ -53,9 +53,9 @@
 
         <ImageView
             android:id="@+id/minus_icon"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginStart="15dp"
+            android:layout_width="@dimen/_22sdp"
+            android:layout_height="@dimen/_23sdp"
+            android:layout_marginStart="@dimen/_8sdp"
             android:layout_marginTop="5dp"
             android:src="@drawable/minus"
             app:layout_constraintStart_toEndOf="@id/item_image"
@@ -67,7 +67,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
             android:layout_marginTop="@dimen/_5sdp"
-            android:text="5"
+            tools:text="5"
             android:textAlignment="center"
             android:textSize="20sp"
             app:layout_constraintEnd_toStartOf="@id/plus_icon"
@@ -78,8 +78,8 @@
 
         <ImageView
             android:id="@+id/plus_icon"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="@dimen/_22sdp"
+            android:layout_height="@dimen/_23sdp"
             android:layout_marginStart="@dimen/_3sdp"
             android:layout_marginTop="5dp"
             android:src="@drawable/plus"
@@ -93,7 +93,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/_6sdp"
-            android:layout_marginBottom="@dimen/_5sdp"
+            android:layout_marginBottom="@dimen/_3sdp"
             android:textColor="@color/gold"
             android:textSize="@dimen/_15sdp"
             android:textStyle="bold"
