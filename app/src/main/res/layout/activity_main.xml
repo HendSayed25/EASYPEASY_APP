@@ -20,14 +20,6 @@
        app:layout_constraintStart_toStartOf="parent"
        app:layout_constraintTop_toTopOf="parent" />
 
-<!--   <FrameLayout-->
-<!--       android:id="@+id/container"-->
-<!--       android:layout_width="match_parent"-->
-<!--       android:layout_height="0dp"-->
-<!--       app:layout_constraintTop_toTopOf="parent"-->
-<!--       app:layout_constraintBottom_toTopOf="@id/bottom_navigation"-->
-<!--       app:layout_constraintStart_toStartOf="parent"-->
-<!--       app:layout_constraintEnd_toEndOf="parent"/>-->
 
    <com.google.android.material.bottomnavigation.BottomNavigationView
        android:id="@+id/bottom_navigation"
@@ -35,7 +27,7 @@
        android:layout_height="wrap_content"
        app:menu="@menu/bottom_naviagtion"
        app:itemIconTint="@color/bottom_naviagtion_icon_color"
-       android:background="@color/orange"
+       android:background="@color/beige"
        app:layout_constraintBottom_toBottomOf="parent"
        app:layout_constraintEnd_toEndOf="parent"
        app:layout_constraintStart_toStartOf="parent" />

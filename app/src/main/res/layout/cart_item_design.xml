@@ -46,7 +46,7 @@
             android:layout_marginStart="@dimen/_8sdp"
             android:layout_marginTop="@dimen/_7sdp"
             android:textSize="20sp"
-
+            android:textColor="@color/darkBeige"
             app:layout_constraintStart_toEndOf="@id/item_image"
             app:layout_constraintTop_toBottomOf="@id/item_name"
             tools:text="2*19.7" />
@@ -82,7 +82,7 @@
             android:layout_height="@dimen/_23sdp"
             android:layout_marginStart="@dimen/_3sdp"
             android:layout_marginTop="5dp"
-            android:src="@drawable/plus"
+            android:src="@drawable/add"
             app:layout_constraintStart_toEndOf="@id/numberOfItemNeeded"
             app:layout_constraintTop_toBottomOf="@id/item_count_tv"
 
@@ -94,7 +94,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/_6sdp"
             android:layout_marginBottom="@dimen/_3sdp"
-            android:textColor="@color/gold"
+            android:textColor="@color/darkBeige"
             android:textSize="@dimen/_15sdp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@id/layout"

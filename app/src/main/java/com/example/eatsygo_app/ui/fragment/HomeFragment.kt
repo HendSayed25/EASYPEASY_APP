@@ -68,7 +68,7 @@ class HomeFragment : Fragment() {
             binding.catOne.setBackgroundColor(
                 ContextCompat.getColor(
                     requireContext(),
-                    R.color.gold
+                    R.color.beige
                 )
             )
             //get the man category from database
@@ -92,7 +92,7 @@ class HomeFragment : Fragment() {
             binding.catTwo.setBackgroundColor(
                 ContextCompat.getColor(
                     requireContext(),
-                    R.color.gold
+                    R.color.beige
                 )
             )
 
@@ -118,7 +118,7 @@ class HomeFragment : Fragment() {
             binding.catThree.setBackgroundColor(
                 ContextCompat.getColor(
                     requireContext(),
-                    R.color.gold
+                    R.color.beige
                 )
             )
             //get the man category from database
@@ -143,7 +143,7 @@ class HomeFragment : Fragment() {
             binding.catFour.setBackgroundColor(
                 ContextCompat.getColor(
                     requireContext(),
-                    R.color.gold
+                    R.color.beige
                 )
             )
             //get the man category from database

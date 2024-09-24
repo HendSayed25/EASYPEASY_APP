@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="black">#000000</color>
-    <color name="lite_black">#393737</color>
+    <color name="lite_black">#171515</color>
     <color name="gray">#DADADA</color>
     <color name="white">#FFFFFFFF</color>
     <color name="gold">#D37127</color>
@@ -9,4 +9,8 @@
     <color name="orange">#D56C1E</color>
     <color name="darkWhite">#FFF5E4</color>
     <color name="lightGreen">#C1D8C3</color>
+    <color name="beige">#C4AE78</color>
+    <color name="creamy">#F9F6F0</color>
+    <color name="darkBeige">#6F5B3E</color>
+
 </resources>

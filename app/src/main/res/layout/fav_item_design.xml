@@ -114,7 +114,7 @@
             app:layout_constraintTop_toBottomOf="@id/price"
             app:layout_constraintStart_toStartOf="@id/left_guideline"
             app:layout_constraintEnd_toStartOf="@id/right_guideline"
-            android:background="@color/orange"
+            android:background="@color/beige"
             android:text="add to cart"
             app:layout_constraintBottom_toBottomOf="@id/bottom_guideline"
             android:layout_marginTop="@dimen/_15sdp"

@@ -50,5 +50,6 @@
     <string name="orders">Orders</string>
     <string name="wallet">Wallet</string>
     <string name="man">man</string>
+    <string name="add_to_cart">Add To Cart</string>
 
 </resources>
