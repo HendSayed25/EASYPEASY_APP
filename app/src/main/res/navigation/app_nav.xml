@@ -19,12 +19,19 @@
         <action
             android:id="@+id/action_homeFragment_to_profileFragment"
             app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_productDetailsFragment"
+            app:destination="@id/productDetailsFragment" />
     </fragment>
     <fragment
         android:id="@+id/favouriteFragment"
         android:name="com.example.eatsygo_app.ui.fragment.FavouriteFragment"
         android:label="fragment_favourite"
-        tools:layout="@layout/fragment_favourite" />
+        tools:layout="@layout/fragment_favourite" >
+        <action
+            android:id="@+id/action_favouriteFragment_to_productDetailsFragment"
+            app:destination="@id/productDetailsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/cartFragment"
         android:name="com.example.eatsygo_app.ui.fragment.CartFragment"
@@ -41,4 +48,12 @@
             app:popUpTo="@id/auth_nav" />
     </fragment>
     <include app:graph="@navigation/auth_nav" />
+    <fragment
+        android:id="@+id/productDetailsFragment"
+        android:name="com.example.eatsygo_app.ui.fragment.ProductDetailsFragment"
+        android:label="ProductDetailsFragment" >
+        <argument
+            android:name="productItem"
+            app:argType="com.example.eatsygo_app.model.entity.ProductEntity" />
+    </fragment>
 </navigation>

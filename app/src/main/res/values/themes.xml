@@ -1,11 +1,11 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.EATSYGO_APP" parent="Theme.Material3.DayNight.NoActionBar">
+    <style name="Base.Theme.EATSYGO_APP" parent="Theme.Material3.Light.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
 
-        <item name="android:colorPrimaryDark">@color/gold</item>
-        <item name="android:colorPrimary">@color/gold</item>
+        <item name="android:colorPrimaryDark">@color/beige</item>
+        <item name="android:navigationBarColor">@color/beige</item>
 
     </style>
 

@@ -5,7 +5,6 @@ plugins {
     id("kotlin-parcelize")
     id("kotlin-kapt")
     id("com.google.dagger.hilt.android")
-
 }
 
 android {
@@ -92,13 +91,15 @@ dependencies {
     implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.5")
     implementation ("androidx.lifecycle:lifecycle-runtime-ktx:2.8.5")
 
-//room
+    //room
     implementation("androidx.room:room-runtime:2.6.1")
     implementation("androidx.preference:preference:1.2.1")
     kapt("androidx.room:room-compiler:2.6.1")
 
-   // implementation (project(path: ,":domain"))
-    //implementation (project(path: ,":data"))
+    // Shimmer effect
+    implementation("com.facebook.shimmer:shimmer:0.5.0")
 
+    // MaterialRatingBar
+    implementation("me.zhanghai.android.materialratingbar:library:1.4.0")
 
 }

@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="@dimen/_105sdp"
     android:layout_margin="@dimen/_7sdp"
     android:background="@color/white"
     android:elevation="@dimen/_2sdp"
@@ -15,13 +15,13 @@
         android:id="@+id/layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="7dp"
         android:background="@color/white">
 
         <ImageView
             android:id="@+id/item_image"
             android:layout_width="143dp"
             android:layout_height="120dp"
+            android:padding="@dimen/_10sdp"
             android:src="@drawable/logo"
             app:layout_constraintBottom_toBottomOf="@id/layout"
             app:layout_constraintStart_toStartOf="@id/layout"
@@ -29,11 +29,12 @@
 
         <TextView
             android:id="@+id/item_name"
-            android:layout_width="wrap_content"
+            android:layout_width="@dimen/_140sdp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_8sdp"
             android:layout_marginTop="16dp"
-            android:textSize="22sp"
+            android:textSize="18sp"
+            android:maxLines="1"
             android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@id/item_image"
             app:layout_constraintTop_toTopOf="@id/layout"
@@ -46,17 +47,18 @@
             android:layout_marginStart="@dimen/_8sdp"
             android:layout_marginTop="@dimen/_7sdp"
             android:textSize="20sp"
+            android:textStyle="bold"
             android:textColor="@color/darkBeige"
             app:layout_constraintStart_toEndOf="@id/item_image"
             app:layout_constraintTop_toBottomOf="@id/item_name"
-            tools:text="2*19.7" />
+            tools:text="2 * 19.7" />
 
         <ImageView
             android:id="@+id/minus_icon"
             android:layout_width="@dimen/_22sdp"
             android:layout_height="@dimen/_23sdp"
             android:layout_marginStart="@dimen/_8sdp"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="@dimen/_10sdp"
             android:src="@drawable/minus"
             app:layout_constraintStart_toEndOf="@id/item_image"
             app:layout_constraintTop_toBottomOf="@id/item_count_tv" />
@@ -66,8 +68,9 @@
             android:layout_width="30dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
-            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_10sdp"
             tools:text="5"
+            android:textStyle="bold"
             android:textAlignment="center"
             android:textSize="20sp"
             app:layout_constraintEnd_toStartOf="@id/plus_icon"
@@ -81,7 +84,7 @@
             android:layout_width="@dimen/_22sdp"
             android:layout_height="@dimen/_23sdp"
             android:layout_marginStart="@dimen/_3sdp"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="@dimen/_10sdp"
             android:src="@drawable/add"
             app:layout_constraintStart_toEndOf="@id/numberOfItemNeeded"
             app:layout_constraintTop_toBottomOf="@id/item_count_tv"

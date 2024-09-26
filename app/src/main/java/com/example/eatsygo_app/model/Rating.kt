@@ -1,10 +1,10 @@
 package com.example.eatsygo_app.model
 
-import com.google.gson.annotations.SerializedName
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 data class Rating(
-
-    val rate: Any? = null,
-
+    val rate: Float = 0.0F,
     val count: Int? = null
-)
+): Parcelable

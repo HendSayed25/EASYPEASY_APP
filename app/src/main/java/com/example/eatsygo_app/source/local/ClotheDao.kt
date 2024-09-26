@@ -22,12 +22,21 @@ interface ClotheDao {
     @Query("SELECT * FROM clothes WHERE category = :category")
     suspend fun getProductByCategory(category: String): List<ProductEntity>
 
-    @Query("SELECT * FROM clothes WHERE isFavourite =1")
+    @Query("SELECT * FROM clothes WHERE isFavourite = 1")
     suspend fun getFavouriteProduct(): List<ProductEntity>
 
     @Query("SELECT * FROM clothes WHERE isCartIn = 1")
     suspend fun getCartProduct(): List<ProductEntity>
 
+    @Query("Update clothes SET isCartIn = 0 WHERE id = :id")
+    suspend fun removeCartProduct(id: Int)
+
+    @Query("Update clothes SET isCartIn = 0, itemCount = :count WHERE id = :id")
+    suspend fun updateCartProduct(id: Int, count: Int)
+
     @Update(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun updateProduct(productItem:ProductEntity):Int
+    suspend fun updateProduct(productItem: ProductEntity): Int
+
+    @Query("SELECT COUNT(id) FROM clothes")
+    suspend fun getProductsCount(): Int
 }

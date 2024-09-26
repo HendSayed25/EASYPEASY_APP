@@ -6,22 +6,21 @@
     android:layout_height="wrap_content"
     android:layout_margin="@dimen/_5sdp"
     android:backgroundTint="@color/white"
-    app:cardElevation="@dimen/_4sdp"
     app:cardCornerRadius="@dimen/_10sdp"
-    >
+    app:cardElevation="@dimen/_4sdp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="@dimen/_5sdp"
-        >
+        android:padding="@dimen/_5sdp">
 
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_100sdp"
+            android:padding="@dimen/_10sdp"
+            android:scaleType="fitCenter"
             android:src="@drawable/empty_cart"
-            android:scaleType="fitXY"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -30,15 +29,15 @@
             android:id="@+id/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Mens Casual Slim Fit"
             android:layout_marginStart="@dimen/_5sdp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="Mens Casual Slim Fit"
             android:textColor="@color/black"
             android:textSize="@dimen/_15sdp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView"
-            android:maxLines="1"
-            android:ellipsize="end"/>
+            app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
 
         <TextView
@@ -46,41 +45,52 @@
             android:layout_width="@dimen/_157sdp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_5sdp"
+            android:ellipsize="end"
             android:gravity="start"
+            android:maxLines="1"
             android:text="Mens Casual Slim Fit"
             android:textSize="@dimen/_10sdp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/title"
-            android:maxLines="1"
-            android:ellipsize="end"/>
+            app:layout_constraintTop_toBottomOf="@+id/title" />
+
+        <me.zhanghai.android.materialratingbar.MaterialRatingBar
+            android:id="@+id/materialRatingBar"
+            style="@style/Widget.MaterialRatingBar.RatingBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:stepSize="0.5"
+            android:minHeight="@dimen/_15sdp"
+            app:mrb_progressTint="@color/beige"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/description" />
 
         <TextView
             android:id="@+id/price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_10sdp"
-            android:layout_marginTop="@dimen/_15sdp"
             android:text="$120.00"
             android:textColor="@color/black"
             android:textSize="@dimen/_15ssp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/description" />
+            app:layout_constraintTop_toBottomOf="@+id/materialRatingBar" />
 
         <ImageView
             android:id="@+id/add_to_fav_design"
             android:layout_width="@dimen/_35sdp"
             android:layout_height="@dimen/_35sdp"
-            android:layout_marginTop="@dimen/_14sdp"
             android:layout_marginEnd="@dimen/_8sdp"
             android:layout_marginBottom="@dimen/_5sdp"
             android:src="@drawable/fav_icon"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/description" />
+            app:layout_constraintTop_toBottomOf="@+id/materialRatingBar" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

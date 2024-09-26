@@ -1,15 +1,13 @@
 package com.example.eatsygo_app.ui.fragment
 
+import android.annotation.SuppressLint
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.animation.AnimationUtils
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.example.eatsygo_app.R
+import androidx.navigation.fragment.findNavController
 import com.example.eatsygo_app.adapter.ProductAdapter
 import com.example.eatsygo_app.databinding.FragmentHomeBinding
 import com.example.eatsygo_app.model.entity.ProductEntity
@@ -25,38 +23,35 @@ import kotlinx.coroutines.withContext
 class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
-    lateinit var productAdapter:ProductAdapter
-    private lateinit var productViewModel:ProductViewModel
+    lateinit var productAdapter: ProductAdapter
+    private lateinit var productViewModel: ProductViewModel
     private val binding get() = _binding!!
 
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         // Inflate the layout for this fragment
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         // Initialize ViewModel
-        productViewModel = ViewModelProvider(this).get(ProductViewModel::class.java)
+        productViewModel = ViewModelProvider(this)[ProductViewModel::class.java]
 
         // Initialize Adapter
         productAdapter = ProductAdapter(emptyList())
         binding.recyclerCart.adapter = productAdapter
 
-        // Observe the products LiveData
-        productViewModel.products.observe(viewLifecycleOwner) { products ->
-            productAdapter.updateData(products)
-        }
-
-        // Fetch products
-        productViewModel.fetchProducts()
-
         return binding.root
     }
 
 
-    override  fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        productViewModel.products.observe(viewLifecycleOwner) { products ->
+            productAdapter.updateData(products)
+        }
+
+        productViewModel.fetchProducts()
 
 
         binding.catOne.setOnClickListener {
@@ -64,23 +59,8 @@ class HomeFragment : Fragment() {
             binding.catTwoTxt.visibility = View.GONE
             binding.catThreeTxt.visibility = View.GONE
             binding.catFourTxt.visibility = View.GONE
-            binding.catOneTxt.text = "Men's Clothes"
-            binding.catOne.setBackgroundColor(
-                ContextCompat.getColor(
-                    requireContext(),
-                    R.color.beige
-                )
-            )
-            //get the man category from database
-            CoroutineScope(Dispatchers.IO).launch {
-                // Switch back to the main thread to update the UI
-                withContext(Dispatchers.Main) {
-                    // Perform your UI updates here, like setting data in a RecyclerView or TextView
-                    var list=ClotheDatabase.getInstance(requireContext()).productDao().getProductByCategory("men's clothing")
-                    productAdapter.updateData(list)
 
-                }
-            }
+            getDataByCategory("men's clothing")
         }
 
         binding.catTwo.setOnClickListener {
@@ -88,25 +68,8 @@ class HomeFragment : Fragment() {
             binding.catOneTxt.visibility = View.GONE
             binding.catThreeTxt.visibility = View.GONE
             binding.catFourTxt.visibility = View.GONE
-            binding.catTwoTxt.text = "Women's Clothes"
-            binding.catTwo.setBackgroundColor(
-                ContextCompat.getColor(
-                    requireContext(),
-                    R.color.beige
-                )
-            )
 
-            //get the man category from database
-            CoroutineScope(Dispatchers.IO).launch {
-                // Switch back to the main thread to update the UI
-                withContext(Dispatchers.Main) {
-                    // Perform your UI updates here, like setting data in a RecyclerView or TextView
-                    var list=ClotheDatabase.getInstance(requireContext()).productDao().getProductByCategory("women's clothing")
-                    productAdapter.updateData(list)
-
-                }
-
-            }
+            getDataByCategory("women's clothing")
         }
 
         binding.catThree.setOnClickListener {
@@ -114,24 +77,8 @@ class HomeFragment : Fragment() {
             binding.catOneTxt.visibility = View.GONE
             binding.catTwoTxt.visibility = View.GONE
             binding.catFourTxt.visibility = View.GONE
-            binding.catThreeTxt.text = "electronics"
-            binding.catThree.setBackgroundColor(
-                ContextCompat.getColor(
-                    requireContext(),
-                    R.color.beige
-                )
-            )
-            //get the man category from database
-            CoroutineScope(Dispatchers.IO).launch {
-                // Switch back to the main thread to update the UI
-                withContext(Dispatchers.Main) {
-                    // Perform your UI updates here, like setting data in a RecyclerView or TextView
-                    var list=ClotheDatabase.getInstance(requireContext()).productDao().getProductByCategory("electronics")
-                    productAdapter.updateData(list)
 
-                }
-
-            }
+            getDataByCategory("electronics")
         }
 
         binding.catFour.setOnClickListener {
@@ -139,62 +86,59 @@ class HomeFragment : Fragment() {
             binding.catOneTxt.visibility = View.GONE
             binding.catTwoTxt.visibility = View.GONE
             binding.catThreeTxt.visibility = View.GONE
-            binding.catFourTxt.text = "jewelery"
-            binding.catFour.setBackgroundColor(
-                ContextCompat.getColor(
-                    requireContext(),
-                    R.color.beige
-                )
-            )
-            //get the man category from database
-            CoroutineScope(Dispatchers.IO).launch {
-                // Switch back to the main thread to update the UI
-                withContext(Dispatchers.Main) {
-                    // Perform your UI updates here, like setting data in a RecyclerView or TextView
-                    var list=ClotheDatabase.getInstance(requireContext()).productDao().getProductByCategory("jewelery")
-                    productAdapter.updateData(list)
 
-                }
-
-            }
+            getDataByCategory("jewelery")
         }
 
 
-      onItemClick()
+        onItemClick()
 
     }
 
-    fun onItemClick(){
+    private fun getDataByCategory(category: String) {
+        //get the man category from database
+        CoroutineScope(Dispatchers.IO).launch {
+            // Switch back to the main thread to update the UI
+            withContext(Dispatchers.Main) {
+                // Perform your UI updates here, like setting data in a RecyclerView or TextView
+                val list = ClotheDatabase.getInstance(requireContext()).productDao()
+                    .getProductByCategory(category = category)
+                productAdapter.updateData(list)
+            }
+        }
+    }
 
-        productAdapter.onItemClicked=object:ProductAdapter.OnItemClick {
+    private fun onItemClick() {
+
+        productAdapter.onItemClicked = object : ProductAdapter.OnItemClick {
             override fun onItemDetails(productItem: ProductEntity) {
                 //open new fragment to show details and add to cart
-                openItemDetailFragment(productItem.id)
+
+                val direction =
+                    HomeFragmentDirections.actionHomeFragmentToProductDetailsFragment(productItem)
+
+                findNavController().navigate(direction)
+
             }
 
+            @SuppressLint("NotifyDataSetChanged")
             override fun addToFav(productItem: ProductEntity) {
                 CoroutineScope(Dispatchers.IO).launch {
-                    withContext(Dispatchers.Main){
-                        productItem.isFavourite=true
-                        ClotheDatabase.getInstance(requireContext()).productDao().updateProduct(productItem)
+
+                    productItem.isFavourite = !productItem.isFavourite
+
+                    ClotheDatabase.getInstance(requireContext()).productDao()
+                        .updateProduct(productItem)
+                    // Update the LiveData with the updated list
+                    withContext(Dispatchers.Main) {
+                        productViewModel.updateProduct(productItem)
                         productAdapter.notifyDataSetChanged()
-                        Log.e("fav",""+productItem.isFavourite)
                     }
                 }
 
             }
 
         }
-    }
-
-    private fun openItemDetailFragment(itemId: Int) {
-        val fragment = ProductDetailsFragment.newInstance(itemId)
-
-        // Perform fragment transaction to replace the current fragment with the detail fragment
-        parentFragmentManager.beginTransaction()
-            .replace(R.id.container_main, fragment)
-            .addToBackStack(null)
-            .commit()
     }
 
     override fun onDestroyView() {

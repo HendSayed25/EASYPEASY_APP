@@ -7,7 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
-import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import com.example.eatsygo_app.R
 import com.example.eatsygo_app.databinding.FragmentProfileBinding
 import com.example.eatsygo_app.utils.AuthViewModel
@@ -54,9 +54,7 @@ class ProfileFragment : Fragment() {
 
         binding.btnLogOut.setOnClickListener {
             authViewModel.setLoginState(false)
-            authViewModel.clearSensitiveData()
-            Navigation.findNavController(view).navigate(R.id.action_profileFragment_to_auth_nav)
-
+            findNavController().navigate(R.id.action_profileFragment_to_auth_nav)
         }
 
     }

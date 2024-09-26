@@ -9,9 +9,12 @@ import com.example.eatsygo_app.R
 import com.example.eatsygo_app.databinding.ProductItemBinding
 import com.example.eatsygo_app.model.entity.ProductEntity
 
-class ProductAdapter(private var productList: List<ProductEntity>) : RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() {
+class ProductAdapter(private var productList: List<ProductEntity>) :
+    RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() {
 
-    inner class ProductViewHolder(private val binding: ProductItemBinding,private val onItemClicked:OnItemClick?) : RecyclerView.ViewHolder(binding.root) {
+    inner class ProductViewHolder(
+        private val binding: ProductItemBinding, private val onItemClicked: OnItemClick?
+    ) : RecyclerView.ViewHolder(binding.root) {
         fun bind(product: ProductEntity) {
             binding.apply {
                 // Bind product data to UI components
@@ -19,10 +22,16 @@ class ProductAdapter(private var productList: List<ProductEntity>) : RecyclerVie
                 price.text = "$${product.price}"
                 description.text = product.description
                 addToFavDesign.setImageResource(
-                    if(product.isFavourite)R.drawable.fav_red
-                    else R.drawable.fav_icon) // Initial state for fav icon
+                    if (product.isFavourite) R.drawable.fav_red
+                    else R.drawable.fav_icon
+                ) // Initial state for fav icon
 
-                Glide.with(imageView).load(product.image).into(imageView)
+                materialRatingBar.rating = product.rating.rate
+
+                Glide.with(imageView)
+                    .load(product.image)
+                    .placeholder(R.drawable.placeholder)
+                    .into(imageView)
 
                 // Handle click event for the addToFav icon
                 addToFavDesign.setOnClickListener {
@@ -39,7 +48,7 @@ class ProductAdapter(private var productList: List<ProductEntity>) : RecyclerVie
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductViewHolder {
         val binding = ProductItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return ProductViewHolder(binding,onItemClicked)
+        return ProductViewHolder(binding, onItemClicked)
     }
 
     override fun onBindViewHolder(holder: ProductViewHolder, position: Int) {

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/white"
     tools:context=".ui.fragment.HomeFragment">
 
@@ -119,6 +119,7 @@
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/catOne"
                     android:layout_width="wrap_content"
+                    app:cardBackgroundColor="@color/beige"
                     android:layout_height="@dimen/_50sdp"
                     android:layout_marginTop="@dimen/_10sdp">
 
@@ -141,7 +142,7 @@
                             android:layout_marginStart="@dimen/_5sdp"
                             android:layout_marginEnd="@dimen/_5sdp"
                             android:padding="5dp"
-                            android:text="man"
+                            android:text="Men's Clothes"
                             android:textColor="@color/black"
                             android:textSize="@dimen/_14ssp"
                             android:textStyle="bold"
@@ -154,6 +155,7 @@
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/catTwo"
                     android:layout_width="wrap_content"
+                    app:cardBackgroundColor="@color/beige"
                     android:layout_height="@dimen/_50sdp"
                     android:layout_marginStart="@dimen/_8sdp"
                     android:layout_marginTop="@dimen/_10sdp">
@@ -176,9 +178,8 @@
                             android:layout_gravity="center_vertical"
                             android:layout_marginStart="@dimen/_5sdp"
                             android:layout_marginEnd="@dimen/_5sdp"
-                            android:fontFamily="@font/antonregular"
                             android:padding="5dp"
-                            android:text="@string/man"
+                            android:text="Women's Clothes"
                             android:textColor="@color/black"
                             android:textSize="@dimen/_18ssp"
                             android:textStyle="bold"
@@ -190,7 +191,7 @@
 
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/catThree"
-
+                    app:cardBackgroundColor="@color/beige"
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/_50sdp"
                     android:layout_marginStart="@dimen/_8sdp"
@@ -214,9 +215,8 @@
                             android:layout_gravity="center_vertical"
                             android:layout_marginStart="@dimen/_5sdp"
                             android:layout_marginEnd="@dimen/_5sdp"
-                            android:fontFamily="@font/antonregular"
                             android:padding="5dp"
-                            android:text="man"
+                            android:text="Electronics"
                             android:textColor="@color/black"
                             android:textSize="@dimen/_18ssp"
                             android:textStyle="bold"
@@ -228,7 +228,7 @@
 
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/catFour"
-
+                    app:cardBackgroundColor="@color/beige"
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/_50sdp"
                     android:layout_marginStart="@dimen/_8sdp"
@@ -253,9 +253,8 @@
                             android:layout_gravity="center_vertical"
                             android:layout_marginStart="@dimen/_5sdp"
                             android:layout_marginEnd="@dimen/_5sdp"
-                            android:fontFamily="@font/antonregular"
                             android:padding="5dp"
-                            android:text="man"
+                            android:text="Jewelery"
                             android:textColor="@color/black"
                             android:textSize="@dimen/_18ssp"
                             android:textStyle="bold"

@@ -27,7 +27,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_begin="21dp" />
+            app:layout_constraintGuide_begin="6dp" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/right_guideline"
@@ -55,22 +55,22 @@
 
         <TextView
             android:id="@+id/title"
-            android:layout_width="wrap_content"
+            android:layout_width="@dimen/_230sdp"
             android:layout_height="wrap_content"
             android:text="Mens Casual Slim Fit"
             android:layout_marginStart="@dimen/_5sdp"
             android:textColor="@color/black"
             android:textSize="@dimen/_15sdp"
+            android:ellipsize="end"
+            android:maxLines="1"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@id/left_guideline"
-            app:layout_constraintTop_toBottomOf="@+id/imageView"
-            android:maxLines="1"
-            android:ellipsize="end"/>
+            app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
 
         <TextView
             android:id="@+id/description"
-            android:layout_width="@dimen/_157sdp"
+            android:layout_width="@dimen/_230sdp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_5sdp"
             android:layout_marginStart="@dimen/_7sdp"
@@ -80,7 +80,7 @@
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@id/left_guideline"
             app:layout_constraintTop_toBottomOf="@+id/title"
-            android:maxLines="1"
+            android:maxLines="3"
             android:ellipsize="end"/>
 
         <TextView
@@ -88,7 +88,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_10sdp"
-            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_18sdp"
             android:text="$120.00"
             android:textColor="@color/black"
             android:textSize="@dimen/_15ssp"
@@ -100,7 +100,7 @@
             android:id="@+id/add_to_fav_design"
             android:layout_width="@dimen/_35sdp"
             android:layout_height="@dimen/_35sdp"
-            android:layout_marginTop="@dimen/_14sdp"
+            android:layout_marginTop="@dimen/_12sdp"
             android:layout_marginEnd="@dimen/_10sdp"
             android:layout_marginBottom="@dimen/_10sdp"
             android:src="@drawable/fav_icon"
@@ -116,11 +116,12 @@
             app:layout_constraintEnd_toStartOf="@id/right_guideline"
             android:background="@color/beige"
             android:text="add to cart"
+            android:textColor="@color/white"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@id/bottom_guideline"
-            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_20sdp"
             android:layout_marginStart="@dimen/_5sdp"
             android:layout_marginEnd="@dimen/_5sdp"
-
             />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

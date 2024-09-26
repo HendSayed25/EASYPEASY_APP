@@ -22,14 +22,14 @@ class ProductViewModel @Inject constructor(
     fun fetchProducts() {
         viewModelScope.launch {
             clotheRepository.fetchAndSaveProducts()
-            loadProductsFromDatabase()
+            _products.postValue(clotheRepository.getAllProducts())
         }
     }
 
-    private fun loadProductsFromDatabase() {
+    fun updateProduct(product: ProductEntity) {
         viewModelScope.launch {
-            val productList = clotheRepository.getAllProducts()
-            _products.postValue(productList)
+            clotheRepository.updateProduct(product)
         }
     }
+
 }

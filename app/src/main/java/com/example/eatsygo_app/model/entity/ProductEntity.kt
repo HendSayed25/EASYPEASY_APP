@@ -1,11 +1,14 @@
 package com.example.eatsygo_app.model.entity
 
+import android.os.Parcelable
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.example.eatsygo_app.model.Rating
+import kotlinx.android.parcel.Parcelize
 
 @Entity(tableName = "clothes")
+@Parcelize
 data class ProductEntity(
     @PrimaryKey
     val id: Int,
@@ -24,5 +27,7 @@ data class ProductEntity(
     @ColumnInfo
     var isFavourite: Boolean,
     @ColumnInfo
-    var isCartIn: Boolean
-)
+    var isCartIn: Boolean,
+    @ColumnInfo
+    var itemCount: Int
+): Parcelable
