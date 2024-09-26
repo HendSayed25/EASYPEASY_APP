@@ -7,6 +7,8 @@
     tools:context=".ui.activity.SplashActivity"
     android:background="@color/white">
 
+<!--    material_on_background_emphasis_high_type-->
+
     <ImageView
         android:id="@+id/logo"
         android:layout_width="wrap_content"

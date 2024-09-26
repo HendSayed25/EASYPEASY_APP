@@ -1,13 +1,19 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.EATSYGO_APP" parent="Theme.Material3.Light.NoActionBar">
+    <style name="Base.Theme.EATSYGO_APP" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="bottomNavigationStyle">@style/NoShadowBottomNavigation</item>
 
-        <item name="android:colorPrimaryDark">@color/beige</item>
-        <item name="android:navigationBarColor">@color/beige</item>
+        <item name="colorPrimary">@color/beige</item>
+
+        <item name="android:colorPrimaryDark">@color/darkBeige</item>
+        <item name="android:colorPrimary">@color/beige</item>
 
     </style>
 
     <style name="Theme.EATSYGO_APP" parent="Base.Theme.EATSYGO_APP" />
+    <!-- Custom style to remove shadow -->
+    <style name="NoShadowBottomNavigation" parent="Widget.MaterialComponents.BottomNavigationView.Colored">
+        <item name="elevation">0dp</item>
+    </style>
 </resources>
