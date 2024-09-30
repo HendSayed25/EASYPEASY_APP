@@ -13,26 +13,26 @@
 
 - Some of the key technologies and techniques we implemented include:
 
- -> XML + Material Design 
+   -- XML + Material Design 
 
- -> ViewModel and LiveData for UI management
+   -- ViewModel and LiveData for UI management
 
- -> MVVM Architecture and Clean Architecture principles for scalable and maintainable code
+   -- MVVM Architecture and Clean Architecture principles for scalable and maintainable code
 
- -> Dagger Hilt for Dependency Injection
+   -- Dagger Hilt for Dependency Injection
 
- -> Navigation Component for managing in-app navigation, along with Bottom Navigation, Navigation graph and Bottom Sheets
+   -- Navigation Component for managing in-app navigation, along with Bottom Navigation, Navigation graph and Bottom Sheets
 
- -> SharedPreferences for storing user preferences
+   -- SharedPreferences for storing user preferences
 
- -> Room Database for offline functionality
+   -- Room Database for offline functionality
 
- -> Singleton Pattern for object management
+   -- Singleton Pattern for object management
 
- -> ViewPager and TabLayout for smooth transitions between views
+   -- ViewPager and TabLayout for smooth transitions between views
 
- -> Shimmer for placeholder UI loading effects
+   -- Shimmer for placeholder UI loading effects
 
- ->  Glide for image loading and caching
+   --  Glide for image loading and caching
 
- ->  Coroutines for asynchronous programming
+   --  Coroutines for asynchronous programming
